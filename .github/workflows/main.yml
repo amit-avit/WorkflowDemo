@@ -38,6 +38,3 @@ jobs:
           
       - run: |
           az account show
-          
-      - run: |
-          git diff HEAD~1
