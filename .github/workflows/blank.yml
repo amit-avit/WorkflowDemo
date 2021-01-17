@@ -12,6 +12,10 @@ on:
         required: true
         default: "aanajbsajsa"
 
+defaults:
+  run:
+    shell: pwsh
+
 env:
   VERSION: ${{ github.event.inputs.VERSION }}
 
@@ -37,3 +41,14 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           echo input:VERSION ${{ env.VERSION }}
+
+      - name: setting a variable
+        run: |
+          $ver = (Find-Module -Name Az).Version.ToString()
+          echo "someVar=$ver" >> $GITHUB_ENV
+          
+      - name: getting the variable
+        run: echo "someVar:" ${{ env.someVar }}
+
+      - name: getting the variable through shell var
+        run: echo "someVar:" $env.someVar
