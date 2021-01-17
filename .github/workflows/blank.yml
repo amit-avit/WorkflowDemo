@@ -53,5 +53,5 @@ jobs:
       - name: getting the repo name
         env:
           GITHUB_REPOSITORY: ${{ env.GITHUB_REPOSITORY }}
-        run: echo ${{ env.GITHUB_REPOSITORY }}
+        run: echo $env.GITHUB_REPOSITORY
         
