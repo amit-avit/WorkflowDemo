@@ -49,6 +49,10 @@ jobs:
           
       - name: getting the variable
         run: echo "someVar:" ${{ env.someVar }}
-
-      - name: getting the variable through shell var
-        run: echo "someVar:" $env.someVar
+        
+  release:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: getting the variable someVar
+        run: echo "someVar:" ${{ env.someVar }}
