@@ -42,15 +42,16 @@ jobs:
           echo test, and deploy your project.
           echo input:VERSION ${{ env.VERSION }}
 
-#       - name: setting a variable
-#         run: |
-#           $ver = (Find-Module -Name Az).Version.ToString()
-#           "someVar=$ver" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf-8 -Append
+      - name: setting a variable
+        run: |
+          $ver = @() | sort-object -Top 1
+          "someVar=$ver" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf-8 -Append
           
 #       - name: getting the variable
 #         run: echo "someVar:" ${{ env.someVar }}
         
       - name: getting the repo name
+        if: env.someVar != ''
         shell: bash
         run: |
           echo ${GITHUB_REPOSITORY}
