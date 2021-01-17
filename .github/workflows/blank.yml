@@ -50,3 +50,6 @@ jobs:
       - name: getting the variable
         run: echo "someVar:" ${{ env.someVar }}
         
+      - name: getting the repo name
+        run: echo ${{ env.GITHUB_REPOSITORY }}
+        
