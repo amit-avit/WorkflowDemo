@@ -52,6 +52,6 @@ jobs:
         
       - name: getting the repo name
         run: |
-          echo $GITHUB_REPOSITORY
-          echo $GITHUB_ACTOR
+          echo $env:GITHUB_REPOSITORY
+          echo $env:GITHUB_ACTOR
         
