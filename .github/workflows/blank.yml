@@ -51,8 +51,8 @@ jobs:
 #         run: echo "someVar:" ${{ env.someVar }}
         
       - name: getting the repo name
+        shell: bash
         run: |
-          echo $env:GITHUB_REPOSITORY
-          echo $env:GITHUB_ACTOR
-          echo $env:INPUT_BRANCH
+          echo ${GITHUB_REPOSITORY}
+          echo ${GITHUB_ACTOR}
         
