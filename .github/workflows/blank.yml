@@ -45,7 +45,7 @@ jobs:
       - name: setting a variable
         run: |
           $ver = (Find-Module -Name Az).Version.ToString()
-          echo "someVar=$ver" >> $GITHUB_ENV
+          Write-Output "::set-env name=someVar::$ver"
           
       - name: getting the variable
         run: echo "someVar:" ${{ env.someVar }}
