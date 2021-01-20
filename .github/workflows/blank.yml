@@ -34,7 +34,7 @@ jobs:
       - name: Run my PS script
         run: |
           Get-Module -Name Az -ListAvailable
-          "/usr/share" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+          "/usr/share" | Out-File -FilePath $env:PSModulePath -Encoding utf8 -Append
           $env:PSModulePath
           pwsh -Command '& {$env:PSModulePath; Get-Module -Name Az -ListAvailable}'
 
