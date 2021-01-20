@@ -34,7 +34,7 @@ jobs:
       - name: Run my PS script
         run: |
           Get-Module -Name Az -ListAvailable
-          $env:PSModuePath = "/usr/share/:"+$env:PSModulePath
+          $env:PSModuePath = '/usr/share:'+$env:PSModulePath
           pwsh -Command "& {Get-Module -Name Az -ListAvailable}"
 
       # Runs a single command using the runners shell
