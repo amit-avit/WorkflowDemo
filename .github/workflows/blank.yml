@@ -32,7 +32,10 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Run my PS script
-        run: ls /usr/share/
+        run: |
+          Get-Module -Name Az -ListAvailable
+          $env:PSModuePath = "/usr/share/:"+$env:PSModulePath
+          Get-Module -Name Az -ListAvailable
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
