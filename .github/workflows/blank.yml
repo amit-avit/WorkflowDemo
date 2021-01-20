@@ -37,7 +37,7 @@ jobs:
           Get-Module -Name Az -ListAvailable
           $env:PSModuePath = '/usr/share:'+$env:PSModulePath
           $env:PSModulePath
-          pwsh -Command "& {$env:PSModulePath; Get-Module -Name Az -ListAvailable}"
+          pwsh -Command '& {$env:PSModulePath; Get-Module -Name Az -ListAvailable}'
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
