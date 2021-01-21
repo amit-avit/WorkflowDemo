@@ -31,12 +31,15 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Run my PS script
-        run: |
-          $CurrentValue = [Environment]::GetEnvironmentVariable("PSModulePath", "Machine")
-          [Environment]::SetEnvironmentVariable("PSModulePath", $CurrentValue + ":/usr/share", "Machine")
-          $env:PSModulePath
-          pwsh -Command '& {$env:PSModulePath; Get-Module -Name Az -ListAvailable}'
+      - name: Azure PowerShell Action
+        uses: Azure/powershell@v1
+        with:
+          inlineScript: |
+            echo "Getting Az version"
+            Get-Module -Name Az -ListAvailable
+            echo "Getting All Az versions available"
+            Get-Module -Name Az -ListAvailable
+          azPSVersion: latest
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
