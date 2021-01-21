@@ -36,7 +36,7 @@ jobs:
         with:
           inlineScript: |
             echo "Getting Az version"
-            Get-Module -Name Az -ListAvailable
+            Get-Module -Name Az
             echo "Getting All Az versions available"
             Get-Module -Name Az -ListAvailable
           azPSVersion: latest
