@@ -17,6 +17,6 @@ jobs:
       - name: Run a multi-line script
         run: |
           $stime = Get-Date -DisplayHint Time
-          (New-Object System.Net.WebClient).DownloadFile("https://vstsagenttools.blob.core.windows.net/tools/demoAssets/test/dotnet_sdk.zip", "/Users/amitk/Downloads/dnetsdk.zip")
+          (New-Object System.Net.WebClient).DownloadFile("https://vstsagenttools.blob.core.windows.net/tools/demoAssets/test/dotnet_sdk.zip", "dnetsdk.zip")
           $diff = (Get-Date -DisplayHint Time) - $stime
           $diff
